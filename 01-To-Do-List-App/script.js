@@ -2,12 +2,10 @@ const buttonEl = document.querySelector("#button");
 const inputEl = document.querySelector("#myInput");
 const todoList = document.querySelector("#todo_list");
 
-// Load tasks when page loads
 let todos = JSON.parse(localStorage.getItem("todos")) || [];
 
 renderTodos();
 
-// Add Task
 buttonEl.addEventListener("click", addTodo);
 
 function addTodo() {
@@ -32,7 +30,6 @@ function addTodo() {
     inputEl.value = "";
 }
 
-// Render Tasks
 function renderTodos() {
     todoList.innerHTML = "";
 
@@ -43,15 +40,14 @@ function renderTodos() {
             li.classList.add("completed");
         }
 
-        // Task Text
         const span = document.createElement("span");
         span.textContent = todo.text;
 
-        // Button Container
+
         const actions = document.createElement("div");
         actions.classList.add("actions");
 
-        // Complete Button
+    
         const completeBtn = document.createElement("button");
         completeBtn.textContent = "✓";
         completeBtn.classList.add("complete-btn");
@@ -60,7 +56,7 @@ function renderTodos() {
             toggleComplete(todo.id);
         });
 
-        // Edit Button
+    
         const editBtn = document.createElement("button");
         editBtn.textContent = "Edit";
         editBtn.classList.add("edit-btn");
@@ -69,7 +65,7 @@ function renderTodos() {
             editTodo(todo.id);
         });
 
-        // Delete Button
+    
         const deleteBtn = document.createElement("button");
         deleteBtn.textContent = "Delete";
         deleteBtn.classList.add("delete-btn");
@@ -89,7 +85,7 @@ function renderTodos() {
     });
 }
 
-// Delete Task
+
 function deleteTodo(id) {
     todos = todos.filter((todo) => todo.id !== id);
 
@@ -97,7 +93,7 @@ function deleteTodo(id) {
     renderTodos();
 }
 
-// Edit Task
+
 function editTodo(id) {
     const todo = todos.find((todo) => todo.id === id);
 
@@ -111,7 +107,6 @@ function editTodo(id) {
     renderTodos();
 }
 
-// Toggle Complete
 function toggleComplete(id) {
     const todo = todos.find((todo) => todo.id === id);
 
@@ -121,7 +116,6 @@ function toggleComplete(id) {
     renderTodos();
 }
 
-// Save to Local Storage
 function saveTodos() {
     localStorage.setItem("todos", JSON.stringify(todos));
 }

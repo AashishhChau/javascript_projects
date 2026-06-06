@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Rental Service</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>🏠 Room Rental Service</h1>
+        <p>Find your perfect stay</p>
+    </header>
+
+    <section id="roomList"></section>
+
+    <section class="booking-section">
+        <h2>Book Your Room</h2>
+
+        <form id="bookingForm">
+            <label>Select Room</label>
+            <select id="roomSelect" required></select>
+
+            <label>Check-in Date</label>
+            <input type="date" id="checkIn" required>
+
+            <label>Check-out Date</label>
+            <input type="date" id="checkOut" required>
+
+            <button type="submit">Book Now</button>
+        </form>
+
+        <div id="message"></div>
+    </section>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
